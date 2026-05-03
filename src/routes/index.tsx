@@ -9,7 +9,6 @@ import caseArena from "@/assets/sabo/05-case-arena.jpg";
 import caseHub from "@/assets/sabo/06-case-sabohub.jpg";
 import caseAI from "@/assets/sabo/07-case-ainewbie.jpg";
 import caseRE from "@/assets/sabo/08-case-realestate.jpg";
-import texture from "@/assets/sabo/09-texture-noir.jpg";
 import team from "@/assets/sabo/11-team-portrait.jpg";
 import city from "@/assets/sabo/12-hcmc-night.jpg";
 import {
