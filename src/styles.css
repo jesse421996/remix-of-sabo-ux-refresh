@@ -88,6 +88,7 @@
   --gradient-noir: linear-gradient(180deg, oklch(0.1 0.012 60) 0%, oklch(0.16 0.014 60) 100%);
   --shadow-gold: 0 20px 60px -20px oklch(0.82 0.14 85 / 0.45);
   --shadow-elegant: 0 30px 80px -30px oklch(0 0 0 / 0.7);
+  --ink-accent: oklch(0.45 0.12 255);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

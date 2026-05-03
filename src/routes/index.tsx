@@ -296,8 +296,7 @@ function Index() {
             </p>
             <div className="relative mt-10 flex flex-wrap gap-4 justify-center">
               <Button size="lg" className="rounded-full h-12 px-8 shadow-[var(--shadow-gold)]">
-                <span>hello@sabo.studio</span>
-                <ArrowRight className="h-4 w-4" />
+                <span>hello@sabo.studio</span><ArrowRight className="h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="rounded-full h-12 px-8 border-border">
                 Book a call
