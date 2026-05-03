@@ -12,6 +12,11 @@ import caseRE from "@/assets/sabo/08-case-realestate.jpg";
 import texture from "@/assets/sabo/09-texture-noir.jpg";
 import team from "@/assets/sabo/11-team-portrait.jpg";
 import city from "@/assets/sabo/12-hcmc-night.jpg";
+import {
+  AuroraBg, StardustBg, SilkBg, MarbleBg, DecoBg, MetalBg,
+  GrainOverlay, Spotlight, OrbitRings, MarqueeStrip, TiltCard,
+  SectionLabel, GoldDivider, GoldText, VelvetCard, LUX_BG_GALLERY,
+} from "@/components/lux";
 
 export const Route = createFileRoute("/")({
   component: Index,
