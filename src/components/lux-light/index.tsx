@@ -27,10 +27,10 @@ export const LIGHT_ASSETS = {
 };
 
 /* ============ 20 IMAGE BACKGROUNDS ============ */
-type BgProps = { className?: string; children?: React.ReactNode; opacity?: number };
+type BgProps = { className?: string; children?: React.ReactNode; opacity?: number; id?: string };
 
-const ImgBg = ({ src, className, children, opacity = 1, overlay = true }: BgProps & { src: string; overlay?: boolean }) => (
-  <div className={cn("relative overflow-hidden", className)}>
+const ImgBg = ({ src, className, children, opacity = 1, overlay = true, id }: BgProps & { src: string; overlay?: boolean }) => (
+  <div id={id} className={cn("relative overflow-hidden", className)}>
     <img src={src} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" style={{ opacity }} />
     {overlay && <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/60 to-white/90" />}
     <div className="relative">{children}</div>
