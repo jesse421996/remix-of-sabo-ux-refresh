@@ -9,9 +9,13 @@ import caseArena from "@/assets/sabo/05-case-arena.jpg";
 import caseHub from "@/assets/sabo/06-case-sabohub.jpg";
 import caseAI from "@/assets/sabo/07-case-ainewbie.jpg";
 import caseRE from "@/assets/sabo/08-case-realestate.jpg";
-import texture from "@/assets/sabo/09-texture-noir.jpg";
 import team from "@/assets/sabo/11-team-portrait.jpg";
 import city from "@/assets/sabo/12-hcmc-night.jpg";
+import {
+  AuroraBg, StardustBg, SilkBg, MarbleBg, DecoBg, MetalBg,
+  GrainOverlay, Spotlight, OrbitRings, MarqueeStrip, TiltCard,
+  SectionLabel, GoldDivider, GoldText, VelvetCard, LUX_BG_GALLERY,
+} from "@/components/lux";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -46,11 +50,15 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center pt-24 pb-16">
+      <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src={hero} alt="" className="h-full w-full object-cover opacity-50" />
+          <img src={hero} alt="" className="h-full w-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
         </div>
+        <AuroraBg className="absolute inset-0 -z-10 opacity-70" />
+        <Spotlight />
+        <OrbitRings className="opacity-30" />
+        <GrainOverlay opacity={0.06} />
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center w-full">
           <div className="lg:col-span-7 animate-fade-in">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/5 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-primary">
@@ -59,9 +67,7 @@ function Index() {
             </span>
             <h1 className="mt-6 text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight">
               Crafted digital
-              <span className="block bg-gradient-to-r from-primary via-primary-glow to-primary bg-clip-text text-transparent">
-                experiences.
-              </span>
+              <GoldText className="block">experiences.</GoldText>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
               We build, automate and create category-defining products for ambitious brands —
@@ -85,26 +91,20 @@ function Index() {
             </div>
           </div>
           <div className="lg:col-span-5 hidden lg:block">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-primary/20 shadow-[var(--shadow-elegant)]">
+            <TiltCard className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-primary/20 shadow-[var(--shadow-elegant)] lux-border-gradient">
               <img src={city} alt="HCMC night" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-xs uppercase tracking-[0.3em] text-primary mb-2">Featured</div>
                 <div className="text-2xl font-semibold">Saigon, after dark.</div>
               </div>
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>
 
       {/* MARQUEE */}
-      <section className="border-y border-border bg-card/40">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-wrap items-center gap-x-12 gap-y-3 justify-center text-muted-foreground text-sm uppercase tracking-[0.25em]">
-          {["Arena","SaboHub","AI Newbie","RealEstate.vn","Lumen","Noir Co."].map(n=>(
-            <span key={n} className="hover:text-primary transition">★ {n}</span>
-          ))}
-        </div>
-      </section>
+      <MarqueeStrip items={["Arena Esports","SaboHub","AI Newbie","RealEstate.vn","Lumen","Noir Co.","Maison Or","Atelier 88"]} />
 
       {/* SERVICES */}
       <section id="services" className="py-32 relative">
@@ -150,14 +150,11 @@ function Index() {
       </section>
 
       {/* WORK */}
-      <section id="work" className="py-32 relative">
-        <div
-          className="absolute inset-0 -z-10 opacity-[0.07]"
-          style={{ backgroundImage: `url(${texture})`, backgroundSize: "cover" }}
-        />
+      <DecoBg className="py-32 relative" >
+        <section id="work">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
-            <span className="text-primary text-xs uppercase tracking-[0.3em]">02 — Selected work</span>
+            <SectionLabel index="02">Selected work</SectionLabel>
             <h2 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight">Recent obsessions.</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -181,7 +178,71 @@ function Index() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </DecoBg>
+
+      {/* LUXURY LIBRARY SHOWCASE */}
+      <SilkBg className="py-32 relative">
+        <GrainOverlay opacity={0.05} />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <SectionLabel index="04">Luxury library</SectionLabel>
+          <div className="mt-4 flex items-end justify-between flex-wrap gap-6">
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight max-w-3xl">
+              Ten <GoldText>backgrounds</GoldText>, infinite atmospheres.
+            </h2>
+            <p className="text-muted-foreground max-w-sm">
+              A curated set of cinematic textures, gradients and animated overlays — drop them
+              into any section to instantly elevate the feel.
+            </p>
+          </div>
+          <GoldDivider />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {LUX_BG_GALLERY.map((b, i) => (
+              <TiltCard key={b.name} className="group relative aspect-[3/4] rounded-xl overflow-hidden border border-border lux-border-gradient">
+                <img src={b.src} alt={b.name} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-primary">{String(i+1).padStart(2,"0")}</div>
+                  <div className="text-sm font-semibold mt-1">{b.name}</div>
+                  <div className="text-[11px] text-muted-foreground mt-0.5">{b.hint}</div>
+                </div>
+              </TiltCard>
+            ))}
+          </div>
+
+          {/* Live component demo strip */}
+          <div className="mt-20 grid md:grid-cols-3 gap-6">
+            <MarbleBg className="aspect-square rounded-2xl border border-border flex items-end p-6">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-primary">Component</div>
+                <div className="text-xl font-semibold mt-1">&lt;MarbleBg /&gt;</div>
+              </div>
+            </MarbleBg>
+            <StardustBg className="aspect-square rounded-2xl border border-border flex items-end p-6">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-primary">Component</div>
+                <div className="text-xl font-semibold mt-1">&lt;StardustBg /&gt;</div>
+              </div>
+            </StardustBg>
+            <MetalBg className="aspect-square rounded-2xl border border-border flex items-end p-6">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-primary">Component</div>
+                <div className="text-xl font-semibold mt-1">&lt;MetalBg /&gt;</div>
+              </div>
+            </MetalBg>
+          </div>
+
+          <VelvetCard className="mt-6">
+            <div className="text-xs uppercase tracking-[0.3em] text-primary">Component</div>
+            <div className="text-2xl font-semibold mt-1">&lt;VelvetCard /&gt; · luxury surface for testimonials, pricing, quotes</div>
+            <p className="mt-4 text-muted-foreground max-w-2xl">
+              All 10+ components live in <code className="text-primary">src/components/lux</code>.
+              Compose any background with overlays like <code className="text-primary">&lt;Spotlight /&gt;</code>,
+              <code className="text-primary"> &lt;OrbitRings /&gt;</code> and <code className="text-primary">&lt;GrainOverlay /&gt;</code>.
+            </p>
+          </VelvetCard>
+        </div>
+      </SilkBg>
 
       {/* ABOUT */}
       <section id="about" className="py-32">
@@ -224,24 +285,25 @@ function Index() {
       {/* CTA */}
       <section id="contact" className="py-32">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="relative overflow-hidden rounded-3xl border border-primary/30 p-12 md:p-20 text-center" style={{background:"var(--gradient-noir)"}}>
-            <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-primary/30 blur-3xl" />
+          <StardustBg className="relative overflow-hidden rounded-3xl border border-primary/30 p-12 md:p-20 text-center">
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-primary/30 blur-3xl animate-lux-pulse-glow" />
             <span className="relative text-primary text-xs uppercase tracking-[0.3em]">Let's build</span>
             <h2 className="relative mt-6 text-4xl md:text-6xl font-semibold tracking-tight">
-              Have something <span className="italic text-primary">remarkable</span> in mind?
+              Have something <GoldText className="italic">remarkable</GoldText> in mind?
             </h2>
             <p className="relative mt-6 text-muted-foreground max-w-xl mx-auto">
               Tell us about your ambition. We reply within one business day with a clear plan.
             </p>
             <div className="relative mt-10 flex flex-wrap gap-4 justify-center">
               <Button size="lg" className="rounded-full h-12 px-8 shadow-[var(--shadow-gold)]">
-                hello@sabo.studio <ArrowRight className="h-4 w-4" />
+                <span>hello@sabo.studio</span>
+                <ArrowRight className="h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="rounded-full h-12 px-8 border-border">
                 Book a call
               </Button>
             </div>
-          </div>
+          </StardustBg>
         </div>
       </section>
 

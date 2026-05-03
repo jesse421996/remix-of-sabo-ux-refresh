@@ -154,3 +154,84 @@
 @theme inline {
   --color-primary-glow: var(--primary-glow);
 }
+
+/* ============ Luxury Animations ============ */
+@keyframes lux-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes lux-float {
+  0%,100% { transform: translateY(0) }
+  50% { transform: translateY(-12px) }
+}
+@keyframes lux-spin-slow {
+  to { transform: rotate(360deg) }
+}
+@keyframes lux-pulse-glow {
+  0%,100% { opacity: .5; transform: scale(1) }
+  50% { opacity: 1; transform: scale(1.08) }
+}
+@keyframes lux-marquee {
+  from { transform: translateX(0) }
+  to { transform: translateX(-50%) }
+}
+@keyframes lux-aurora {
+  0%,100% { transform: translate(0,0) scale(1) }
+  33% { transform: translate(40px,-30px) scale(1.1) }
+  66% { transform: translate(-30px,40px) scale(.95) }
+}
+@keyframes lux-grain {
+  0%,100% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+}
+@keyframes lux-gradient-x {
+  0%,100% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+}
+
+.animate-lux-shimmer { animation: lux-shimmer 3s linear infinite; background-size: 200% 100%; }
+.animate-lux-float { animation: lux-float 6s ease-in-out infinite; }
+.animate-lux-spin-slow { animation: lux-spin-slow 24s linear infinite; }
+.animate-lux-pulse-glow { animation: lux-pulse-glow 4s ease-in-out infinite; }
+.animate-lux-marquee { animation: lux-marquee 30s linear infinite; }
+.animate-lux-aurora { animation: lux-aurora 18s ease-in-out infinite; }
+.animate-lux-grain { animation: lux-grain 0.8s steps(8) infinite; }
+.animate-lux-gradient-x { background-size: 200% 200%; animation: lux-gradient-x 8s ease infinite; }
+
+.lux-text-gold {
+  background: linear-gradient(120deg, oklch(0.82 0.14 85), oklch(0.95 0.16 92), oklch(0.82 0.14 85));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: lux-shimmer 5s linear infinite;
+}
+
+.lux-glass {
+  background: color-mix(in oklab, var(--card) 60%, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid color-mix(in oklab, var(--primary) 20%, transparent);
+}
+
+.lux-border-gradient {
+  position: relative;
+}
+.lux-border-gradient::before {
+  content: "";
+  position: absolute; inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, oklch(0.82 0.14 85), transparent 40%, transparent 60%, oklch(0.82 0.14 85));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
